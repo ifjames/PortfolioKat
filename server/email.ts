@@ -93,7 +93,8 @@ export async function verifyEmailConfig() {
     console.log('EMAIL_PORT:', process.env.EMAIL_PORT);
     
     if (!EMAIL_USER || !EMAIL_PASS) {
-      throw new Error('Email credentials not configured');
+      console.log('Email credentials not configured - skipping verification');
+      return false;
     }
     
     const transporter = createTransporter();

@@ -26,7 +26,7 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "jamesmatthewcastillo4@gmail.com",
+    value: "deleonkatrina13@gmail.com",
     color: "bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400",
   },
   {
@@ -97,7 +97,7 @@ export default function Contact() {
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Get In Touch</h2>
           <p className="text-base sm:text-xl text-muted-foreground">
-            Let's discuss how we can work together on your next project
+            Ready to streamline your business operations? Let's discuss how I can help as your virtual assistant
           </p>
         </motion.div>
 

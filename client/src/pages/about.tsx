@@ -1,84 +1,127 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Download } from "lucide-react";
 
-const skills = {
-  frontend: ["React", "Vue.js", "Angular", "TypeScript", "JavaScript", "Tailwind CSS", "SASS"],
-  backend: ["Node.js", "Python", "PHP", "MongoDB", "PostgreSQL", "AWS", "Docker", "CI/CD"],
-};
+const personalSkills = [
+  "E-mail handling and Email inbox optimization",
+  "Calendar & Meeting Scheduling",
+  "Research, Data Collection and Data Entry",
+  "SMM (scheduling posts)",
+  "Website post management",
+  "WordPress",
+  "Customer Support",
+  "Google Suite: Drive, Docs, Sheets, Forms, Mail, Calendar, Slides",
+  "MS Office (Word, Excel, PowerPoint, Outlook)",
+  "Other administrative support"
+];
 
 export default function About() {
   return (
-    <section className="py-12 sm:py-16 lg:py-20">
+    <div className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        {/* Header Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h1 className="text-5xl font-bold mb-8">
+            About <span className="text-primary">Me</span>
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            "YOUR BEHIND-THE-SCENES PARTNER IN PRODUCTIVITY AND SUCCESS!"
+          </p>
+        </motion.div>
+
+        {/* About Me Section */}
+        {/* About Me Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="order-2 lg:order-1"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="space-y-8"
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6">About Me</h2>
-            <p className="text-base sm:text-lg text-muted-foreground mb-4 lg:mb-6">
-              I'm James Matthew Castillo, a passionate full-stack developer with 5+ years of experience
-              building modern web applications. I love creating user-centered
-              designs and writing clean, efficient code.
-            </p>
-            <p className="text-base sm:text-lg text-muted-foreground mb-6 lg:mb-8">
-              When I'm not coding, you can find me exploring new technologies,
-              contributing to open-source projects, or enjoying the great
-              outdoors with my camera.
-            </p>
-
-            {/* Skills */}
-            <div className="mb-6 lg:mb-8">
-              <h3 className="text-lg sm:text-xl font-semibold mb-3 lg:mb-4">Technical Skills</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
-                <div>
-                  <h4 className="font-medium mb-2 text-primary">Frontend</h4>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    {skills.frontend.map((skill) => (
-                      <li key={skill}>{skill}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-medium mb-2 text-primary">Backend</h4>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    {skills.backend.map((skill) => (
-                      <li key={skill}>{skill}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+            <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
+              <p>
+                Results-driven professional with experience in customer support, digital marketing, and project management. Currently working as a Customer Support Intern for a local e-commerce startup, assisting with email and chat inquiries, using CRM tools, and addressing customer concerns.
+              </p>
+              <p>
+                Skilled in problem-solving, communication, and process optimization to support business growth and deliver quality outcomes in fast-paced environments.
+              </p>
             </div>
-
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: [1, 1.3, 0.9, 1.2, 1], rotate: [0, 5, -5, 3, 0] }}
-              animate={{ rotate: 0 }}
-            >
-              <Button className="inline-flex items-center">
-                <Download className="mr-2 h-4 w-4" />
-                Download Resume
-              </Button>
-            </motion.div>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="order-1 lg:order-2 lg:pl-12 mb-8 lg:mb-0"
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex justify-center lg:justify-end"
           >
             <img
-              src="https://i.ibb.co/Lzg00ZW3/454890869-1551467882442501-6964452098914490991-n.jpg&auto=format&fit=crop&w=600&h=600"
-              alt="James profile"
-              className="rounded-2xl shadow-2xl w-full max-w-sm sm:max-w-md mx-auto"
+              src="https://i.ibb.co/chwKvc77/504195476-1385451012759702-5915179977276087071-n.jpg&auto=format&fit=crop&w=500&h=600"
+              alt="Professional profile"
+              className="rounded-2xl shadow-2xl w-full max-w-sm"
             />
           </motion.div>
         </div>
+
+        {/* Personal Skills Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mb-20"
+        >
+          <h2 className="text-4xl font-bold mb-12 text-center">Personal Skills</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="space-y-6">
+              {personalSkills.slice(0, Math.ceil(personalSkills.length / 2)).map((skill, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+                  className="flex items-start"
+                >
+                  <div className="w-3 h-3 bg-primary rounded-full mr-4 flex-shrink-0 mt-2"></div>
+                  <p className="text-muted-foreground text-lg">{skill}</p>
+                </motion.div>
+              ))}
+            </div>
+            <div className="space-y-6">
+              {personalSkills.slice(Math.ceil(personalSkills.length / 2)).map((skill, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
+                  className="flex items-start"
+                >
+                  <div className="w-3 h-3 bg-primary rounded-full mr-4 flex-shrink-0 mt-2"></div>
+                  <p className="text-muted-foreground text-lg">{skill}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="text-center"
+        >
+          <Button size="lg" className="inline-flex items-center">
+            <Download className="mr-2 h-5 w-5" />
+            Download Resume
+          </Button>
+        </motion.div>
       </div>
-    </section>
+    </div>
   );
 }

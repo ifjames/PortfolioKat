@@ -14,25 +14,28 @@ interface Message {
 }
 
 const botResponses: Record<string, string> = {
-  "hello": "Hi there! I'm James's assistant. How can I help you today?",
-  "hi": "Hello! I'm here to answer any questions about James Castillo. What would you like to know?",
-  "location": "James is based in Batangas City, Philippines and is open to both local and remote opportunities worldwide.",
-  "where": "James is located in Batangas City, Philippines. He's available for work worldwide through remote collaboration.",
-  "availability": "James is currently available for new opportunities! He's open to discussing projects and job opportunities.",
-  "available": "Yes, James is available for new projects and job opportunities. Feel free to reach out through the contact form!",
-  "time": "James is available during Philippine Time business hours (9 AM - 6 PM PHT) but can accommodate different time zones for international clients.",
-  "hours": "James typically works during Philippine Time business hours but is flexible with scheduling for client needs across different time zones.",
-  "skills": "James specializes in full-stack development with expertise in React, Node.js, TypeScript, and modern web technologies.",
-  "experience": "James has 5+ years of experience in full-stack development, creating modern web applications and user-centered designs.",
-  "projects": "You can view James's latest projects in the Projects section. He's worked on e-commerce platforms, task management apps, and analytics dashboards.",
-  "contact": "You can reach James through the contact form on this website, or connect with him on LinkedIn, Facebook, or Instagram.",
-  "email": "You can email James at jamesmatthewcastillo4@gmail.com or use the contact form on this website.",
-  "phone": "James can be reached at +63 960 381 8382 for urgent inquiries.",
-  "resume": "You can download James's resume from the About section of this website.",
-  "technologies": "James works with React, Vue.js, Angular, Node.js, Python, PostgreSQL, MongoDB, AWS, Docker, and many other modern technologies.",
-  "philippines": "Yes, James is based in Batangas City, Philippines. He's available for both local Philippine projects and international remote work.",
-  "timezone": "James works in Philippine Time (PHT/GMT+8). He's flexible with scheduling and can accommodate meetings with international clients.",
-  "default": "I'm here to help! You can ask me about James's location, availability, skills, experience, or how to contact him. What would you like to know?"
+  "hello": "Hi there! I'm here to help with any questions about Kat's virtual assistant services. How can I assist you today?",
+  "hi": "Hello! I'm here to answer any questions about Kat's virtual assistant services. What would you like to know?",
+  "location": "Kat is based in Batangas City, Philippines and provides virtual assistance services to clients worldwide.",
+  "where": "Kat is located in Batangas City, Philippines. She provides remote virtual assistance services globally.",
+  "availability": "Kat is currently available for new clients and projects! She'd love to discuss how she can support your business.",
+  "available": "Yes, Kat is available for new virtual assistant projects. Feel free to reach out through the contact form!",
+  "time": "Kat is available during Philippine Time business hours (9 AM - 6 PM PHT) but can accommodate different time zones for international clients.",
+  "hours": "Kat typically works during Philippine Time business hours but she's flexible with scheduling to meet client needs across different time zones.",
+  "skills": "Kat specializes in administrative support, content creation, social media management, customer service, and business process optimization.",
+  "experience": "Kat has extensive experience in virtual assistance including admin support, content creation, social media management, and customer service.",
+  "services": "Kat offers administrative support, email/calendar management, social media management, content creation, customer support, and data entry services.",
+  "portfolio": "You can view Kat's work samples and client projects in the Portfolio section to see examples of her virtual assistant services.",
+  "contact": "You can reach Kat through the contact form on this website, or connect with her on LinkedIn, Facebook, or Instagram.",
+  "email": "You can email Kat at jamesmatthewcastillo4@gmail.com or use the contact form on this website.",
+  "phone": "Kat can be reached at +63 960 381 8382 for urgent inquiries.",
+  "resume": "You can download Kat's resume from the About section or view her credentials in the Credentials section.",
+  "tools": "Kat is proficient with Google Workspace, Microsoft Office, Canva, Trello, Asana, social media platforms, and many other business tools.",
+  "philippines": "Yes, Kat is based in Batangas City, Philippines. She provides virtual assistance services to clients both locally and internationally.",
+  "timezone": "Kat works in Philippine Time (PHT/GMT+8). She's flexible with scheduling and can accommodate meetings with international clients.",
+  "rates": "Kat's rates are competitive and depend on the scope of work. Please contact her directly to discuss pricing for your specific needs.",
+  "pricing": "Kat offers flexible pricing based on project requirements. Let's discuss your needs and she'll provide a customized quote.",
+  "default": "I'm here to help! You can ask me about Kat's services, availability, skills, experience, tools she uses, or how to contact her. What would you like to know?"
 };
 
 function getBotResponse(userMessage: string): string {
@@ -52,7 +55,7 @@ export function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      text: "Hi! I'm James's virtual assistant. Ask me about his availability, location, skills, or how to contact him!",
+      text: "Hi! I'm Kat's Assistant. Ask me about her availability, location, skills, or how to contact her!",
       isBot: true,
       timestamp: new Date(),
     },
@@ -182,7 +185,7 @@ export function Chatbot() {
               <CardHeader className="bg-primary text-primary-foreground rounded-t-lg flex-shrink-0">
                 <CardTitle className="flex items-center gap-2 text-sm">
                   <Bot className="h-5 w-5" />
-                  James's Assistant
+                  Kat's Assistant
                 </CardTitle>
               </CardHeader>
               

@@ -14,6 +14,8 @@ const navItems = [
   { href: "/", label: "Home" },
   { href: "/projects", label: "Projects" },
   { href: "/about", label: "About" },
+  { href: "/certificates", label: "Credentials" },
+  { href: "/tools", label: "Tools" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -44,7 +46,7 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="text-xl font-bold text-primary">
-            JC<span className="text-foreground">.</span>
+            KDL<span className="text-foreground">.</span>
           </Link>
 
           {/* Desktop Navigation */}

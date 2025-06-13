@@ -25,12 +25,12 @@ export default function Projects() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            {showAll ? "All Projects" : "Featured Work"}
+            {showAll ? "Complete Portfolio" : "Featured Projects"}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             {showAll 
-              ? "Complete portfolio showcasing my skills across different technologies" 
-              : "Here are some of my recent projects showcasing different technologies and design approaches"
+              ? "Complete portfolio showcasing my virtual assistant services and accomplishments" 
+              : "Here are some of my recent projects and client projects showcasing different services"
             }
           </p>
         </motion.div>

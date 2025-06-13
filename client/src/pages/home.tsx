@@ -37,7 +37,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               Hi, I'm{" "}
-              <span className="text-primary">James Castillo</span>
+              <span className="text-primary">Katrina De Leon</span>
             </motion.h1>
             
             <motion.p
@@ -46,8 +46,8 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              Full Stack Developer crafting beautiful, functional web experiences
-              with modern technologies
+              General Virtual Assistant - Your behind-the-scenes partner in 
+              productivity and success!
             </motion.p>
             
             <motion.div
@@ -129,8 +129,8 @@ export default function Home() {
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Featured Work</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Here are some of my recent projects showcasing different technologies
-              and design approaches
+              Here are some of my recent client work and accomplishments showcasing 
+              various virtual assistant services
             </p>
           </motion.div>
 
@@ -155,7 +155,7 @@ export default function Home() {
           >
             <Button asChild variant="link" className="text-primary">
               <Link href="/projects">
-                View All Projects
+                View Complete Portfolio
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>

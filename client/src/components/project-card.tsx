@@ -94,7 +94,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="flip-card h-96"
+      className="flip-card h-[420px]"
     >
       <div className="flip-card-inner relative w-full h-full">
         {/* Front */}
@@ -102,33 +102,38 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-48 object-cover"
+            className="w-full h-40 object-cover"
           />
-          <div className="p-6">
-            <h3 className="text-xl font-semibold mb-2 text-card-foreground">
+          <div className="p-5 flex flex-col h-[260px]">
+            <h3 className="text-lg font-semibold mb-2 text-card-foreground line-clamp-2 leading-tight">
               {project.title}
             </h3>
-            <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+            <p className="text-muted-foreground text-sm mb-3 line-clamp-3 leading-relaxed flex-grow">
               {project.description}
             </p>
-            <div className="flex flex-wrap gap-2">
-              {project.technologies?.map((tech) => {
+            <div className="flex flex-wrap gap-1.5 mt-auto">
+              {project.technologies?.slice(0, 3).map((tech) => {
                 const IconComponent = getTechIcon(tech);
                 return (
-                  <Badge key={tech} variant="secondary" className="text-xs flex items-center gap-1">
+                  <Badge key={tech} variant="secondary" className="text-xs flex items-center gap-1 px-2 py-1">
                     {IconComponent && <IconComponent className="h-3 w-3" />}
-                    {tech}
+                    <span className="truncate max-w-[80px]">{tech}</span>
                   </Badge>
                 );
               })}
+              {project.technologies && project.technologies.length > 3 && (
+                <Badge variant="outline" className="text-xs">
+                  +{project.technologies.length - 3} more
+                </Badge>
+              )}
             </div>
           </div>
         </div>
 
         {/* Back */}
         <div className="flip-card-back absolute inset-0 bg-gradient-to-br from-primary to-primary/80 rounded-xl shadow-lg p-6 flex flex-col justify-center items-center text-primary-foreground">
-          <h3 className="text-xl font-bold mb-4">{project.title}</h3>
-          <p className="text-center mb-6">{project.description}</p>
+          <h3 className="text-xl font-bold mb-4 text-center line-clamp-2">{project.title}</h3>
+          <p className="text-center mb-6 text-sm leading-relaxed line-clamp-4">{project.description}</p>
           {/* Development Mode - Show status badge instead of buttons */}
           {isInDevelopmentMode ? (
             <motion.div
@@ -139,7 +144,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             >
               <Badge 
                 variant="secondary" 
-                className="bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 text-sm px-4 py-2 border border-slate-200 dark:border-slate-700"
+                className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm px-4 py-2 border border-slate-200 dark:border-slate-600"
               >
                 <Lock className="w-4 h-4 mr-2" />
                 {isEverythingLocked ? "Locked" : (project.developmentMessage || "In Development")}

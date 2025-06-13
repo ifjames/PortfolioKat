@@ -10,6 +10,8 @@ import { Chatbot } from "@/components/chatbot";
 import Home from "@/pages/home";
 import Projects from "@/pages/projects";
 import About from "@/pages/about";
+import Certificates from "@/pages/certificates";
+import Tools from "@/pages/tools";
 import Contact from "@/pages/contact";
 import NotFound from "@/pages/not-found";
 
@@ -19,6 +21,8 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/projects" component={Projects} />
       <Route path="/about" component={About} />
+      <Route path="/certificates" component={Certificates} />
+      <Route path="/tools" component={Tools} />
       <Route path="/contact" component={Contact} />
       <Route component={NotFound} />
     </Switch>
