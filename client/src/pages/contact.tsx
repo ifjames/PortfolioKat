@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
-import { Mail, Phone, MapPin, Linkedin, Instagram, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Instagram, Loader2, Clock } from "lucide-react";
 import { FaFacebook } from "react-icons/fa";
 
 const contactSchema = z.object({
@@ -26,7 +26,7 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "deleonkatrina13@gmail.com",
+    value: "katdworks@gmail.com",
     color: "bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400",
   },
   {
@@ -44,9 +44,9 @@ const contactInfo = [
 ];
 
 const socialLinks = [
-  { icon: FaFacebook, href: "#", color: "hover:bg-blue-600" },
-  { icon: Linkedin, href: "#", color: "hover:bg-blue-700" },
-  { icon: Instagram, href: "#", color: "hover:bg-pink-600" },
+  { icon: FaFacebook, href: "https://www.facebook.com/ifkatz#", color: "hover:bg-blue-600" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/katrina-de-leon-i-eva-085282368/", color: "hover:bg-blue-700" },
+  { icon: Instagram, href: "https://www.instagram.com/ifkats", color: "hover:bg-pink-600" },
 ];
 
 export default function Contact() {
@@ -97,7 +97,7 @@ export default function Contact() {
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Get In Touch</h2>
           <p className="text-base sm:text-xl text-muted-foreground">
-            Ready to streamline your business operations? Let's discuss how I can help as your virtual assistant
+            Let's discuss how I can help streamline your business operations and support your goals
           </p>
         </motion.div>
 
@@ -138,6 +138,8 @@ export default function Contact() {
                   <motion.a
                     key={index}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
@@ -148,6 +150,28 @@ export default function Contact() {
                 ))}
               </div>
             </div>
+
+            {/* Availability Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="mt-6 lg:mt-8"
+            >
+              <div className="bg-card border border-border rounded-lg p-4 lg:p-6">
+                <div className="flex items-start space-x-4">
+                  <div className="bg-primary/10 text-primary p-3 rounded-lg flex-shrink-0">
+                    <Clock className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2">Availability</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      I respond to messages within 24 hours. Open to freelance opportunities and collaborations.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Contact Form */}

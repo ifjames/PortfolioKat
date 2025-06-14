@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, Lock } from "lucide-react";
+import { ExternalLink, Github, Lock, Eye, Images } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
@@ -21,7 +21,6 @@ import {
   SiNextdotjs,
   SiExpress,
   SiDjango,
-
   SiStripe,
   SiFramer
 } from "react-icons/si";
@@ -31,6 +30,7 @@ import { EVERYTHING_LOCKED } from "@/data/projects";
 interface ProjectCardProps {
   project: Project;
   index: number;
+  onViewProject: (project: Project) => void;
 }
 
 const getTechIcon = (tech: string) => {
@@ -66,27 +66,31 @@ const getTechIcon = (tech: string) => {
   return iconMap[tech];
 };
 
-export function ProjectCard({ project, index }: ProjectCardProps) {
+export function ProjectCard({ project, index, onViewProject }: ProjectCardProps) {
   const [showCodeLocked, setShowCodeLocked] = useState(false);
   const [showLiveLocked, setShowLiveLocked] = useState(false);
 
   // Determine if project should be in locked/development mode
   const isEverythingLocked = EVERYTHING_LOCKED;
-  const isInDevelopmentMode = project.developmentMode || isEverythingLocked; // Show badge mode if in development OR everything is locked
+  const isInDevelopmentMode = project.developmentMode || isEverythingLocked;
   const isCodeLocked = isEverythingLocked || project.codeLocked;
   const isLiveUrlLocked = isEverythingLocked || project.liveUrlLocked;
+
+  const hasMultipleImages = project.images && project.images.length > 1;
 
   const handleCodeClick = () => {
     if (isCodeLocked && !isInDevelopmentMode) {
       setShowCodeLocked(true);
-      setTimeout(() => setShowCodeLocked(false), 2000); // Revert after 2 seconds
+      setTimeout(() => setShowCodeLocked(false), 2000);
     }
   };
 
-  const handleLiveClick = () => {
+  const handleViewProject = () => {
     if (isLiveUrlLocked && !isInDevelopmentMode) {
       setShowLiveLocked(true);
-      setTimeout(() => setShowLiveLocked(false), 2000); // Revert after 2 seconds
+      setTimeout(() => setShowLiveLocked(false), 2000);
+    } else {
+      onViewProject(project);
     }
   };
   return (
@@ -99,11 +103,24 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       <div className="flip-card-inner relative w-full h-full">
         {/* Front */}
         <div className="flip-card-front absolute inset-0 bg-card dark:bg-card rounded-xl shadow-lg overflow-hidden border border-border">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-40 object-cover"
-          />
+          <div className="relative">
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-40 object-cover"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = `https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400`;
+              }}
+            />
+            {/* Multiple Images Indicator */}
+            {hasMultipleImages && (
+              <div className="absolute top-3 right-3 bg-black/70 backdrop-blur-sm text-white px-2 py-1 rounded-full text-xs flex items-center gap-1">
+                <Images className="h-3 w-3" />
+                {project.images?.length}
+              </div>
+            )}
+          </div>
           <div className="p-5 flex flex-col h-[260px]">
             <h3 className="text-lg font-semibold mb-2 text-card-foreground line-clamp-2 leading-tight">
               {project.title}
@@ -153,62 +170,49 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           ) : (
             /* Normal Mode - Show buttons */
             <div className="flex space-x-4">
-              {(project.liveUrl || isLiveUrlLocked) && (
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: [1, 1.3, 0.9, 1.2, 1], rotate: [0, 3, -3, 2, 0] }}
-                  animate={{ rotate: 0 }}
+              {/* View Project Button */}
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: [1, 1.3, 0.9, 1.2, 1], rotate: [0, 3, -3, 2, 0] }}
+                animate={{ rotate: 0 }}
+              >
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  className="bg-background text-foreground hover:bg-accent hover:text-accent-foreground border-2 border-background overflow-hidden"
+                  onClick={handleViewProject}
                 >
-                  {isLiveUrlLocked ? (
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      className="bg-background text-foreground hover:bg-accent hover:text-accent-foreground border-2 border-background overflow-hidden"
-                      onClick={handleLiveClick}
-                    >
-                      <AnimatePresence mode="wait">
-                        {showLiveLocked ? (
-                          <motion.div
-                            key="locked"
-                            initial={{ opacity: 0, x: 20, scale: 0.8 }}
-                            animate={{ opacity: 1, x: 0, scale: 1 }}
-                            exit={{ opacity: 0, x: -20, scale: 0.8 }}
-                            transition={{ duration: 0.3, ease: "easeInOut" }}
-                            className="flex items-center"
-                          >
-                            <Lock className="w-4 h-4 mr-2" />
-                            {isEverythingLocked ? "Everything Locked" : (project.liveUrlLockedMessage || "Locked")}
-                          </motion.div>
-                        ) : (
-                          <motion.div
-                            key="normal"
-                            initial={{ opacity: 0, x: 20, scale: 0.8 }}
-                            animate={{ opacity: 1, x: 0, scale: 1 }}
-                            exit={{ opacity: 0, x: -20, scale: 0.8 }}
-                            transition={{ duration: 0.3, ease: "easeInOut" }}
-                            className="flex items-center"
-                          >
-                            <ExternalLink className="w-4 h-4 mr-2" />
-                            Live Demo
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </Button>
-                  ) : (
-                    <Button
-                      asChild
-                      variant="secondary"
-                      size="sm"
-                      className="bg-background text-foreground hover:bg-accent hover:text-accent-foreground border-2 border-background"
-                    >
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Live Demo
-                      </a>
-                    </Button>
-                  )}
-                </motion.div>
-              )}
+                  <AnimatePresence mode="wait">
+                    {showLiveLocked ? (
+                      <motion.div
+                        key="locked"
+                        initial={{ opacity: 0, x: 20, scale: 0.8 }}
+                        animate={{ opacity: 1, x: 0, scale: 1 }}
+                        exit={{ opacity: 0, x: -20, scale: 0.8 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="flex items-center"
+                      >
+                        <Lock className="w-4 h-4 mr-2" />
+                        {isEverythingLocked ? "Everything Locked" : (project.liveUrlLockedMessage || "Locked")}
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="normal"
+                        initial={{ opacity: 0, x: 20, scale: 0.8 }}
+                        animate={{ opacity: 1, x: 0, scale: 1 }}
+                        exit={{ opacity: 0, x: -20, scale: 0.8 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="flex items-center"
+                      >
+                        <Eye className="w-4 h-4 mr-2" />
+                        {hasMultipleImages ? "View Gallery" : "View Project"}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </Button>
+              </motion.div>
+
+              {/* Code Button (if available) */}
               {(project.githubUrl || isCodeLocked) && (
                 <motion.div
                   whileHover={{ scale: 1.1 }}

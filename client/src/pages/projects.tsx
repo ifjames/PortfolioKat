@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ProjectCard } from "@/components/project-card";
+import { ProjectGalleryModal } from "@/components/project-gallery-modal";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
@@ -8,12 +9,24 @@ import type { Project } from "@/data/projects";
 
 export default function Projects() {
   const [showAll, setShowAll] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
   const allProjects = getAllProjects();
   const featuredProjects = getFeaturedProjects();
   
   // Show featured first, then all projects when showAll is true
   const filteredProjects = showAll ? allProjects : featuredProjects;
+
+  const handleViewProject = (project: Project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
 
   return (
     <section className="py-20 bg-muted/30">
@@ -44,7 +57,12 @@ export default function Projects() {
           transition={{ duration: 0.5, ease: "easeInOut" }}
         >
           {filteredProjects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+            <ProjectCard 
+              key={project.id} 
+              project={project} 
+              index={index} 
+              onViewProject={handleViewProject}
+            />
           ))}
         </motion.div>
 
@@ -93,6 +111,13 @@ export default function Projects() {
           </motion.div>
         )}
       </div>
+
+      {/* Project Gallery Modal */}
+      <ProjectGalleryModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </section>
   );
 }
