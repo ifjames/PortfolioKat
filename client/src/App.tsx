@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/theme-provider";
 import { NotificationProvider } from "@/hooks/use-notifications";
+import { useContentProtection } from "@/lib/content-protection";
 import { Navigation } from "@/components/navigation";
 import { Chatbot } from "@/components/chatbot";
 import Home from "@/pages/home";
@@ -30,6 +31,9 @@ function Router() {
 }
 
 function App() {
+  // Initialize content protection
+  useContentProtection();
+
   return (
     <NotificationProvider>
       <QueryClientProvider client={queryClient}>

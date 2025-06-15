@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
@@ -32,7 +32,7 @@ const contactInfo = [
   {
     icon: Phone,
     label: "Phone",
-    value: "+63 960 381 8382",
+    value: "+63 915 463 1747",
     color: "bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400",
   },
   {
@@ -51,6 +51,78 @@ const socialLinks = [
 
 export default function Contact() {
   const { toast } = useToast();
+
+  // Enable text selection and copy/paste on this page only
+  useEffect(() => {
+    // Create a style element to override global protection for this page
+    const contactPageStyle = document.createElement('style');
+    contactPageStyle.id = 'contact-page-override';
+    contactPageStyle.textContent = `
+      .contact-page * {
+        -webkit-user-select: text !important;
+        -moz-user-select: text !important;
+        -ms-user-select: text !important;
+        user-select: text !important;
+        -webkit-touch-callout: default !important;
+      }
+      
+      .contact-page img {
+        -webkit-user-select: none !important;
+        -moz-user-select: none !important;
+        user-select: none !important;
+      }
+      
+      .contact-page .selectable-text {
+        -webkit-user-select: text !important;
+        -moz-user-select: text !important;
+        user-select: text !important;
+        cursor: text !important;
+      }
+      
+      .contact-page .selectable-text:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+      }
+    `;
+    document.head.appendChild(contactPageStyle);
+
+    // Override keyboard event handlers for this page
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Allow Ctrl+C, Ctrl+V, Ctrl+A, Ctrl+X on contact page
+      if (e.ctrlKey && ['c', 'v', 'a', 'x'].includes(e.key)) {
+        e.stopPropagation();
+        return true;
+      }
+    };
+
+    // Override text selection handlers
+    const handleSelectStart = (e: Event) => {
+      e.stopPropagation();
+      return true;
+    };
+
+    const handleMouseDown = (e: MouseEvent) => {
+      e.stopPropagation();
+      return true;
+    };
+
+    // Add event listeners with capture to override global ones
+    document.addEventListener('keydown', handleKeyDown, true);
+    document.addEventListener('selectstart', handleSelectStart, true);
+    document.addEventListener('mousedown', handleMouseDown, true);
+
+    // Cleanup on unmount
+    return () => {
+      const styleElement = document.getElementById('contact-page-override');
+      if (styleElement) {
+        styleElement.remove();
+      }
+      document.removeEventListener('keydown', handleKeyDown, true);
+      document.removeEventListener('selectstart', handleSelectStart, true);
+      document.removeEventListener('mousedown', handleMouseDown, true);
+    };
+  }, []);
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
@@ -87,7 +159,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-muted/30">
+    <section className="contact-page py-12 sm:py-16 lg:py-20 bg-muted/30">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -124,7 +196,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-medium text-sm sm:text-base">{item.label}</h4>
-                    <p className="text-muted-foreground text-sm sm:text-base">{item.value}</p>
+                    <p className="text-muted-foreground text-sm sm:text-base selectable-text cursor-text">{item.value}</p>
                   </div>
                 </motion.div>
               ))}

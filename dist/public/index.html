@@ -3,10 +3,266 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <script type="module" crossorigin src="/assets/index-C-2huBXC.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CD5Ku2SI.css">
+    <title>KatDWorks | Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2306b6d4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16'/%3E%3Crect width='20' height='14' x='2' y='6' rx='2'/%3E%3C/svg%3E" />
+    
+    <!-- Basic Meta Tags -->
+    <meta name="description" content="Kat D. Works - Professional Portfolio showcasing skills, projects, and achievements in web development and technology." />
+    <meta name="keywords" content="portfolio, web developer, software engineer, projects, skills, experience" />
+    <meta name="author" content="Kat D. Works" />
+    
+    <!-- Open Graph Meta Tags (Facebook, LinkedIn, WhatsApp, etc.) -->
+    <meta property="og:title" content="KatDWorks | Professional Portfolio" />
+    <meta property="og:description" content="Explore my professional portfolio showcasing web development skills, innovative projects, and technical achievements in modern technology." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://katdworksportfolio.web.app" />
+    <meta property="og:image" content="https://katdworksportfolio.web.app/og-image.svg" />
+    <meta property="og:image:alt" content="KatDWorks Portfolio Preview" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="KatDWorks Portfolio" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="KatDWorks | Professional Portfolio" />
+    <meta name="twitter:description" content="Explore my professional portfolio showcasing web development skills, innovative projects, and technical achievements." />
+    <meta name="twitter:image" content="https://katdworksportfolio.web.app/og-image.svg" />
+    <meta name="twitter:image:alt" content="KatDWorks Portfolio Preview" />
+    
+    <!-- Additional Meta Tags for better SEO -->
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#06b6d4" />
+    <link rel="canonical" href="https://katdworksportfolio.web.app" />
+    
+    <!-- Content Protection Styles -->
+    <style>
+      * {
+        -webkit-user-select: none !important;
+        -moz-user-select: none !important;
+        user-select: none !important;
+        -webkit-touch-callout: none !important;
+        -webkit-tap-highlight-color: transparent !important;
+      }
+      
+      img {
+        -webkit-user-drag: none !important;
+        -khtml-user-drag: none !important;
+        -moz-user-drag: none !important;
+        -o-user-drag: none !important;
+        user-drag: none !important;
+        pointer-events: none !important;
+      }
+      
+      body {
+        -webkit-user-select: none !important;
+        -moz-user-select: none !important;
+        user-select: none !important;
+      }
+      
+      /* Disable print styling */
+      @media print {
+        body { display: none !important; }
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-zDsWijQz.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CUc5-BxR.css">
   </head>
   <body>
     <div id="root"></div>
+    
+    <!-- Content Protection Script -->
+    <script>
+      // Disable right-click context menu
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+      });
+      
+      // Disable text selection
+      document.addEventListener('selectstart', function(e) {
+        var isFormElement = e.target.tagName === 'INPUT' || 
+                           e.target.tagName === 'TEXTAREA' ||
+                           e.target.tagName === 'SELECT' ||
+                           e.target.contentEditable === 'true';
+        
+        if (!isFormElement) {
+          e.preventDefault();
+          return false;
+        }
+      });
+      
+      // Disable drag and drop
+      document.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+        return false;
+      });
+      
+      // Disable F12, Ctrl+Shift+I, Ctrl+Shift+C, Ctrl+U, Ctrl+S, Ctrl+A, Ctrl+P
+      document.addEventListener('keydown', function(e) {
+        // Check if we're in a form field
+        var isFormElement = e.target.tagName === 'INPUT' || 
+                           e.target.tagName === 'TEXTAREA' ||
+                           e.target.tagName === 'SELECT' ||
+                           e.target.contentEditable === 'true';
+
+        // F12 - Developer Tools
+        if (e.key === 'F12') {
+          e.preventDefault();
+          return false;
+        }
+        
+        // Ctrl+Shift+I - Developer Tools
+        if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+          e.preventDefault();
+          return false;
+        }
+        
+        // Ctrl+Shift+C - Inspect Element
+        if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+          e.preventDefault();
+          return false;
+        }
+        
+        // Ctrl+Shift+J - Console
+        if (e.ctrlKey && e.shiftKey && e.key === 'J') {
+          e.preventDefault();
+          return false;
+        }
+        
+        // Ctrl+U - View Source
+        if (e.ctrlKey && e.key === 'U') {
+          e.preventDefault();
+          return false;
+        }
+        
+        // Allow form interactions
+        if (isFormElement) {
+          if (e.ctrlKey && (e.key === 'a' || e.key === 'c' || e.key === 'v' || e.key === 'x')) {
+            return true; // Allow copy/paste/select all in form fields
+          }
+        }
+        
+        // Disable for non-form elements
+        if (!isFormElement) {
+          // Ctrl+S - Save Page
+          if (e.ctrlKey && e.key === 's') {
+            e.preventDefault();
+            return false;
+          }
+          
+          // Ctrl+A - Select All
+          if (e.ctrlKey && e.key === 'a') {
+            e.preventDefault();
+            return false;
+          }
+          
+          // Ctrl+P - Print
+          if (e.ctrlKey && e.key === 'p') {
+            e.preventDefault();
+            return false;
+          }
+          
+          // Ctrl+C - Copy
+          if (e.ctrlKey && e.key === 'c') {
+            e.preventDefault();
+            return false;
+          }
+          
+          // Ctrl+V - Paste
+          if (e.ctrlKey && e.key === 'v') {
+            e.preventDefault();
+            return false;
+          }
+          
+          // Ctrl+X - Cut
+          if (e.ctrlKey && e.key === 'x') {
+            e.preventDefault();
+            return false;
+          }
+        }
+      });
+      
+      // Disable print
+      window.addEventListener('beforeprint', function(e) {
+        e.preventDefault();
+        return false;
+      });
+      
+      // Additional protection for developer tools detection
+      let devtools = {
+        open: false,
+        orientation: null
+      };
+      
+      setInterval(function() {
+        if (window.outerHeight - window.innerHeight > 200 || window.outerWidth - window.innerWidth > 200) {
+          if (!devtools.open) {
+            devtools.open = true;
+            console.clear();
+            console.log('Developer tools detected. Portfolio content is protected.');
+          }
+        } else {
+          devtools.open = false;
+        }
+      }, 500);
+      
+      // Clear console regularly
+      setInterval(function() {
+        console.clear();
+      }, 2000);
+      
+      // Disable image dragging specifically
+      document.addEventListener('DOMContentLoaded', function() {
+        const images = document.querySelectorAll('img');
+        images.forEach(function(img) {
+          img.setAttribute('draggable', 'false');
+          img.style.pointerEvents = 'none';
+        });
+        
+        // Observer for dynamically added images
+        const observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            mutation.addedNodes.forEach(function(node) {
+              if (node.nodeName === 'IMG') {
+                node.setAttribute('draggable', 'false');
+                node.style.pointerEvents = 'none';
+              }
+              if (node.querySelectorAll) {
+                const imgs = node.querySelectorAll('img');
+                imgs.forEach(function(img) {
+                  img.setAttribute('draggable', 'false');
+                  img.style.pointerEvents = 'none';
+                });
+              }
+            });
+          });
+        });
+        
+        observer.observe(document.body, { childList: true, subtree: true });
+      });
+      
+      // Override clipboard functionality
+      document.addEventListener('copy', function(e) {
+        e.clipboardData.setData('text/plain', '');
+        e.preventDefault();
+      });
+      
+      // Disable mouse selection
+      document.onselectstart = function(e) { 
+        var isFormElement = e.target.tagName === 'INPUT' || 
+                           e.target.tagName === 'TEXTAREA' ||
+                           e.target.tagName === 'SELECT' ||
+                           e.target.contentEditable === 'true';
+        return isFormElement;
+      };
+      document.onmousedown = function(e) { 
+        var isFormElement = e.target.tagName === 'INPUT' || 
+                           e.target.tagName === 'TEXTAREA' ||
+                           e.target.tagName === 'SELECT' ||
+                           e.target.contentEditable === 'true';
+        return isFormElement;
+      };
+    </script>
   </body>
 </html>

@@ -2,6 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Content Protection Styles */
+* {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+img {
+  -webkit-user-drag: none !important;
+  -khtml-user-drag: none !important;
+  -moz-user-drag: none !important;
+  -o-user-drag: none !important;
+  pointer-events: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  user-select: none !important;
+}
+
+/* Allow interactive elements to be selectable/clickable */
+button, input, textarea, select, a, label, [role="button"], [tabindex] {
+  -webkit-user-select: auto !important;
+  -moz-user-select: auto !important;
+  -ms-user-select: auto !important;
+  user-select: auto !important;
+  pointer-events: auto !important;
+  -webkit-touch-callout: auto !important;
+}
+
+/* Specifically allow form interactions */
+form, form *, .form-field, .form-field * {
+  -webkit-user-select: auto !important;
+  -moz-user-select: auto !important;
+  -ms-user-select: auto !important;
+  user-select: auto !important;
+  pointer-events: auto !important;
+  -webkit-touch-callout: auto !important;
+}
+
+/* Disable print */
+@media print {
+  body { display: none !important; }
+}
+
 .glass-effect {
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Preview Generator</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .preview-card {
+            background: white;
+            width: 1200px;
+            height: 630px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .preview-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+        }
+        .content {
+            text-align: center;
+            z-index: 2;
+            padding: 40px;
+        }
+        .icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 30px;
+            background: #06b6d4;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.3);
+        }
+        .title {
+            font-size: 64px;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+        .subtitle {
+            font-size: 32px;
+            color: #6b7280;
+            margin-bottom: 30px;
+        }
+        .description {
+            font-size: 24px;
+            color: #9ca3af;
+            max-width: 800px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-card">
+        <div class="content">
+            <div class="icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                    <rect width="20" height="14" x="2" y="6" rx="2"/>
+                </svg>
+            </div>
+            <div class="title">KatDWorks</div>
+            <div class="subtitle">Professional Portfolio</div>
+            <div class="description">Showcasing skills, projects, and achievements in web development and technology</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg-gradient)"/>
+  
+  <!-- Main Card -->
+  <rect x="100" y="65" width="1000" height="500" rx="20" fill="white" opacity="0.95"/>
+  
+  <!-- Top accent bar -->
+  <rect x="100" y="65" width="1000" height="120" rx="20" fill="url(#card-gradient)"/>
+  <rect x="100" y="145" width="1000" height="40" fill="url(#card-gradient)" opacity="0.3"/>
+  
+  <!-- Portfolio Icon -->
+  <rect x="560" y="200" width="80" height="80" rx="16" fill="#06b6d4"/>
+  <path d="M592 236V220a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16M576 226h32v14a2 2 0 0 1-2 2H578a2 2 0 0 1-2-2z" 
+        fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Title -->
+  <text x="600" y="340" font-family="Arial, sans-serif" font-size="64" font-weight="bold" 
+        text-anchor="middle" fill="#1f2937">KatDWorks</text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="390" font-family="Arial, sans-serif" font-size="32" 
+        text-anchor="middle" fill="#6b7280">Professional Portfolio</text>
+  
+  <!-- Description -->
+  <text x="600" y="440" font-family="Arial, sans-serif" font-size="20" 
+        text-anchor="middle" fill="#9ca3af">Showcasing skills, projects, and achievements</text>
+  <text x="600" y="470" font-family="Arial, sans-serif" font-size="20" 
+        text-anchor="middle" fill="#9ca3af">in web development and technology</text>
+  
+  <!-- Decorative Elements -->
+  <circle cx="200" cy="150" r="40" fill="#06b6d4" opacity="0.1"/>
+  <circle cx="1000" cy="450" r="60" fill="#3b82f6" opacity="0.1"/>
+  <circle cx="150" cy="500" r="30" fill="#8b5cf6" opacity="0.1"/>
+</svg>
