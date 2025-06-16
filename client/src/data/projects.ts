@@ -126,6 +126,7 @@ export const projects: Project[] = [
     image: "https://i.ibb.co/9kCcynRz/image.png",
     images: [
       "https://i.ibb.co/9kCcynRz/image.png",
+      "https://i.ibb.co/tp9STZL0/image.png",
       "https://i.ibb.co/4wj9tc4R/image.png"
     ],
     technologies: ["Adobe Illustrator", "Canva", "Logo Design", "Brand Identity", "Visual Design"],
