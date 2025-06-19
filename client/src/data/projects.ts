@@ -126,6 +126,7 @@ export const projects: Project[] = [
     image: "https://i.ibb.co/9kCcynRz/image.png",
     images: [
       "https://i.ibb.co/9kCcynRz/image.png",
+      "https://i.ibb.co/B2GYZmMh/White-Minimalist-Product-Skincare-Instagram-Post.png",
       "https://i.ibb.co/tp9STZL0/image.png",
       "https://i.ibb.co/4wj9tc4R/image.png"
     ],
@@ -134,6 +135,40 @@ export const projects: Project[] = [
     category: "Graphic Design",
     developmentMode: false,
     developmentMessage: "Portfolio Showcase"
+  },
+  {
+    id: 9,
+    title: "Campaign Plan Design Sample",
+    description: "Comprehensive marketing campaign planning templates and visual designs.",
+    image: "https://i.ibb.co/KcTsVnd3/1.png",
+    images: [
+      "https://i.ibb.co/KcTsVnd3/1.png",
+      "https://i.ibb.co/xKyMwjFM/2.png",
+      "https://i.ibb.co/nM9VCRW3/3.png",
+      "https://i.ibb.co/cS7Y7Qps/4.png",
+      "https://i.ibb.co/Z6bqnpZD/5.png",
+      "https://i.ibb.co/tM8w3n0R/6.png",
+      "https://i.ibb.co/9P0wKyj/7.png"
+    ],
+    technologies: ["Strategic Planning", "Campaign Design", "Marketing Strategy", "Visual Templates", "Project Management"],
+    featured: true,
+    category: "Marketing & Strategy",
+    developmentMode: false,
+    developmentMessage: "Strategic Planning Showcase"
+  },
+  {
+    id: 10,
+    title: "Sample Flyers Design",
+    description: "Professional flyer design showcasing creative marketing materials for events, promotions, and business announcements. Features eye-catching layouts, strategic color schemes, and compelling visual hierarchy to maximize audience engagement and brand impact.",
+    image: "https://i.ibb.co/N293nDVF/496623628-1892570794854110-5820447567454576515-n.jpg",
+    images: [
+      "https://i.ibb.co/N293nDVF/496623628-1892570794854110-5820447567454576515-n.jpg"
+    ],
+    technologies: ["Flyer Design", "Graphic Design", "Marketing Materials", "Visual Communication", "Canva"],
+    featured: true,
+    category: "Graphic Design",
+    developmentMode: false,
+    developmentMessage: "Design Portfolio"
   }
 ];
 

@@ -5,8 +5,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/theme-provider";
 import { NotificationProvider } from "@/hooks/use-notifications";
-import { useContentProtection } from "@/lib/content-protection";
+import { useRealisticContentProtection } from "@/lib/realistic-content-protection";
 import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
 import { Chatbot } from "@/components/chatbot";
 import Home from "@/pages/home";
 import Projects from "@/pages/projects";
@@ -14,6 +15,7 @@ import About from "@/pages/about";
 import Certificates from "@/pages/certificates";
 import Tools from "@/pages/tools";
 import Contact from "@/pages/contact";
+import Terms from "@/pages/terms";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -25,28 +27,30 @@ function Router() {
       <Route path="/certificates" component={Certificates} />
       <Route path="/tools" component={Tools} />
       <Route path="/contact" component={Contact} />
+      <Route path="/terms" component={Terms} />
       <Route component={NotFound} />
     </Switch>
   );
 }
 
 function App() {
-  // Initialize content protection
-  useContentProtection();
+  // Initialize realistic content protection (acknowledges it's bypassable)
+  useRealisticContentProtection('standard');
 
   return (
     <NotificationProvider>
       <QueryClientProvider client={queryClient}>
         <ThemeProvider defaultTheme="light">
           <TooltipProvider>
-            <div className="min-h-screen">
-              <div className="content-overlay min-h-screen">
+            <div className="min-h-screen flex flex-col">
+              <div className="content-overlay flex-1">
                 <Navigation />
                 <main className="pt-16">
                   <Router />
                 </main>
-                <Chatbot />
               </div>
+              <Footer />
+              <Chatbot />
             </div>
             <Toaster />
           </TooltipProvider>

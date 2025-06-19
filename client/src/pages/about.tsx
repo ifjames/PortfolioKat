@@ -7,24 +7,28 @@ import { Link } from "wouter";
 
 const skillCategories = [
   {
-    category: "Administrative Support",
-    skills: ["Email Management", "Calendar & Meeting Scheduling", "Data Collection & Entry", "File & Document Management"]
+    category: "Real Estate & Sales",
+    skills: ["Real Estate CRM Management (KVCore, Follow Up Boss)", "Property Research & Listing Coordination", "Lead Follow-Up & Email Support", "Cold Calling (Warm Leads)", "Client Communication & Sales Support"]
   },
   {
-    category: "Digital Marketing",
-    skills: ["Social Media Management", "Website & Content Management", "Post Scheduling", "WordPress Administration"]
+    category: "Administrative Support",
+    skills: ["Appointment Scheduling & Calendar Management", "File & Document Organization", "Data Entry & Research", "Email Management & Support", "Virtual Assistant Services"]
+  },
+  {
+    category: "Digital Marketing & Social Media",
+    skills: ["Social Media Management", "Post Scheduling", "WordPress Administration", "Content Creation", "Digital Campaign Support"]
   },
   {
     category: "Technical Skills",
-    skills: ["Google Workspace", "Microsoft Office", "CRM Systems", "Communication Tools"]
+    skills: ["Google Workspace", "Microsoft Office", "CRM Systems", "Communication Tools", "Productivity Software"]
   },
   {
-    category: "Customer Service",
-    skills: ["Live Chat Support", "Client Communication", "Problem Resolution", "High-Volume Support"]
+    category: "Customer Service & Support",
+    skills: ["Customer Support & Live Chat Assistance", "Client Communication", "Problem-Solving", "High-Volume Support", "Professional Communication"]
   },
   {
-    category: "Project Management",
-    skills: ["Task Management", "Process Optimization", "KPI Tracking", "Remote Team Collaboration"]
+    category: "Personal Skills",
+    skills: ["Strong Work Ethic", "Excellent Communication", "Attention to Detail", "Time Management", "Team Collaboration", "Adaptability", "Initiative & Self-Motivation", "Professionalism Under Pressure", "Client-Focused Attitude"]
   }
 ];
 

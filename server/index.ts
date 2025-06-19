@@ -3,6 +3,7 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import { verifyEmailConfig } from "./email";
+import { documentSecurity, initializeProtectedDocuments } from "./document-security";
 
 // Load environment variables from .env file
 dotenv.config();
@@ -10,6 +11,10 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Initialize document security
+initializeProtectedDocuments();
+documentSecurity.setupRoutes(app);
 
 app.use((req, res, next) => {
   const start = Date.now();

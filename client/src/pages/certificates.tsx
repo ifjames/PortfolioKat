@@ -17,27 +17,25 @@ function CertificateViewButton({ certificate, onViewCertificate }: {
   const [buttonState, setButtonState] = useState<'view' | 'not-available'>('view');
   const { toast } = useToast();
 
+  // Initialize button state properly on mount
   useEffect(() => {
-    if (!certificate.image && !certificate.imageLocked) {
-      setButtonState('not-available');
-      const timer = setTimeout(() => {
-        setButtonState('view');
-      }, 2000);
-      return () => clearTimeout(timer);
+    const isLocked = ALL_CERTIFICATES_LOCKED || certificate.imageLocked;
+    
+    // Always start with 'view' state for locked certificates
+    if (isLocked) {
+      setButtonState('view');
+      return;
     }
+    
+    // For unlocked certificates, start with 'view' state
+    // The 'not-available' state will only show after clicking if no image
+    setButtonState('view');
   }, [certificate]);
 
   const handleClick = () => {
     const isLocked = ALL_CERTIFICATES_LOCKED || certificate.imageLocked;
     
-    if (!certificate.image && !isLocked) {
-      setButtonState('not-available');
-      setTimeout(() => {
-        setButtonState('view');
-      }, 2000);
-      return;
-    }
-
+    // Handle locked certificates first
     if (isLocked) {
       toast({
         title: "Certificate Locked",
@@ -47,9 +45,17 @@ function CertificateViewButton({ certificate, onViewCertificate }: {
       return;
     }
 
+    // Handle certificates with images
     if (certificate.image) {
       onViewCertificate(certificate);
+      return;
     }
+
+    // Handle certificates without images (not locked, but no image available)
+    setButtonState('not-available');
+    setTimeout(() => {
+      setButtonState('view');
+    }, 2000);
   };
 
   const getButtonContent = () => {

@@ -122,14 +122,22 @@ export const education: Education[] = [
 export const trainings: Training[] = [
   {
     id: 1,
+    title: "Real Estate Virtual Assistant Masterclass",
+    organizer: "Trained by Coach Karen Dela Fuente",
+    date: "April 2025",
+    duration: "Online Course",
+    description: "Learned core real estate VA responsibilities including calendar management, lead follow-up, and client communication. Trained in using real estate tools such as KVCore, Follow Up Boss, Calendly, and Google Workspace. Gained experience in listing coordination, property research, and document preparation. Completed simulated scenarios for responding to buyer and seller inquiries professionally. Focused on supporting real estate agents through organized, proactive, and detail-oriented virtual support."
+  },
+  {
+    id: 2,
     title: "Virtual Assistant Training and Internship Program",
     organizer: "VA Skills Pro",
-    date: "January 20, 2025 – February 4, 2025",
+    date: "January 2025 – February 2025",
     duration: "128 hours",
     description: "Successfully completed 128 hours of hands-on virtual assistant training and internship experience, covering administrative support, client coordination, and productivity tools."
   },
   {
-    id: 2,
+    id: 3,
     title: "Time Management & Productivity Tools for Remote Teams",
     organizer: "DTI Webinar Series",
     date: "March 2023",
@@ -137,24 +145,24 @@ export const trainings: Training[] = [
     description: "Trained in using productivity tools for managing tasks and streamlining communication in remote environments."
   },
   {
-    id: 3,
+    id: 4,
     title: "Social Media Management & Content Creation",
     organizer: "Digital Marketing Academy",
-    date: "2024",
+    date: "April 2024",
     duration: "32 hours"
   },
   {
-    id: 4,
+    id: 5,
     title: "Email Marketing & Automation",
     organizer: "Digital Marketing Academy",
-    date: "2023",
+    date: "January 2023",
     duration: "30 hours"
   },
   {
-    id: 5,
+    id: 6,
     title: "Graphic Design with Canva",
     organizer: "Design Institute",
-    date: "2022",
+    date: "July 2022",
     duration: "25 hours"
   }
 ];
@@ -162,6 +170,22 @@ export const trainings: Training[] = [
 export const workExperience: WorkExperience[] = [
   {
     id: 1,
+    title: "Sales and Marketing Associate – Real Estate",
+    company: "La Aldea del Monte (Property Consultant Role)",
+    location: "Batangas, Philippines",
+    period: "May 2024 – December 2024",
+    responsibilities: [
+      "Promoted and sold residential properties by presenting project features to potential buyers and guiding them through the purchasing process",
+      "Scheduled client appointments, hosted site viewings, and maintained consistent follow-ups to convert leads into buyers",
+      "Met and exceeded monthly sales goals through effective communication, relationship building, and strategic outreach",
+      "Collaborated with sales team leaders to execute digital campaigns and drive qualified leads through social media platforms",
+      "Provided assistance with documentation, reservation processing, and buyer concerns to ensure a smooth sales experience",
+      "Supported virtual sales efforts and online inquiries as part of Camella's digital sales associate initiative"
+    ],
+    icon: Building
+  },
+  {
+    id: 2,
     title: "Chat Support Representative",
     company: "247CSR",
     location: "Batangas City, Batangas",
@@ -175,7 +199,7 @@ export const workExperience: WorkExperience[] = [
     icon: Briefcase
   },
   {
-    id: 2,
+    id: 3,
     title: "Customer Support Intern",
     company: "Freelance / Project-Based",
     location: "Remote",

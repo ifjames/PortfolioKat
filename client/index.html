@@ -249,6 +249,45 @@
         e.preventDefault();
       });
       
+      // Additional protection against extension tampering
+      setInterval(function() {
+        // Check if protection has been tampered with
+        var testDiv = document.createElement('div');
+        testDiv.style.userSelect = 'none';
+        testDiv.style.cssText += 'user-select: none !important;';
+        document.body.appendChild(testDiv);
+        
+        var computed = window.getComputedStyle(testDiv);
+        if (computed.userSelect !== 'none') {
+          // Protection has been compromised, reinforce
+          var reinforcement = document.createElement('style');
+          reinforcement.textContent = '* { user-select: none !important; -webkit-user-select: none !important; } .contact-page * { user-select: text !important; } input, textarea, button, select { user-select: auto !important; pointer-events: auto !important; }';
+          document.head.appendChild(reinforcement);
+          console.log('%cProtection reinforced - Extension detected', 'color: red; font-weight: bold;');
+        }
+        
+        document.body.removeChild(testDiv);
+      }, 3000);
+
+      // Monitor for suspicious clipboard activity
+      document.addEventListener('paste', function(e) {
+        var isFormElement = e.target.tagName === 'INPUT' || 
+                           e.target.tagName === 'TEXTAREA' ||
+                           e.target.closest('.contact-page');
+        
+        if (!isFormElement) {
+          e.preventDefault();
+          console.log('Unauthorized paste attempt blocked');
+        }
+      });
+
+      // Detect and warn about browser extensions
+      setTimeout(function() {
+        if (typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.getManifest) {
+          console.log('%cBrowser extensions detected. Content protection may be compromised.', 'color: orange; font-weight: bold;');
+        }
+      }, 2000);
+      
       // Disable mouse selection
       document.onselectstart = function(e) { 
         var isFormElement = e.target.tagName === 'INPUT' || 

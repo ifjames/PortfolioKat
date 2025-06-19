@@ -4,6 +4,7 @@ import { X, Award } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { WatermarkOverlay } from "@/components/watermark-overlay";
 import type { Certificate } from "@/data/credentials";
 
 interface CertificateModalProps {
@@ -99,22 +100,31 @@ export function CertificateModal({ certificate, isOpen, onClose }: CertificateMo
               
               <CardContent className="pt-0 flex-1 overflow-y-auto px-4 sm:px-6">
                 {certificate.image && (
-                  <div className="mb-4 sm:mb-6">
-                    <img
-                      src={certificate.image}
-                      alt={`${certificate.title} Certificate`}
-                      className="w-full h-auto rounded-lg shadow-lg max-h-[40vh] sm:max-h-[45vh] object-contain mx-auto block"
-                      draggable="false"
-                      onContextMenu={(e) => e.preventDefault()}
-                      onDragStart={(e) => e.preventDefault()}
-                      style={{ 
-                        userSelect: 'none', 
-                        pointerEvents: 'none',
-                        webkitUserDrag: 'none',
-                        webkitUserSelect: 'none'
-                      }}
-                    />
-                  </div>
+                  <WatermarkOverlay text="KatDWorks Portfolio - Protected Content" className="mb-4 sm:mb-6">
+                    <div className="relative">
+                      <img
+                        src={certificate.image}
+                        alt={`${certificate.title} Certificate`}
+                        className="w-full h-auto rounded-lg shadow-lg max-h-[40vh] sm:max-h-[45vh] object-contain mx-auto block"
+                        draggable="false"
+                        onContextMenu={(e) => e.preventDefault()}
+                        onDragStart={(e) => e.preventDefault()}
+                        style={{ 
+                          userSelect: 'none', 
+                          pointerEvents: 'none',
+                          webkitUserDrag: 'none',
+                          webkitUserSelect: 'none'
+                        }}
+                      />
+                      {/* Additional overlay protection */}
+                      <div 
+                        className="absolute inset-0 bg-transparent"
+                        style={{ pointerEvents: 'auto', userSelect: 'none' }}
+                        onContextMenu={(e) => e.preventDefault()}
+                        onDragStart={(e) => e.preventDefault()}
+                      />
+                    </div>
+                  </WatermarkOverlay>
                 )}
                 
                 <div className="space-y-3 sm:space-y-4 pb-4">

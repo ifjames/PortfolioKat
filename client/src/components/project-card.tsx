@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github, Lock, Eye, Images } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { ContentWatermark } from "@/components/copyright-protection";
 import { useState } from "react";
 import { 
   SiReact, 
@@ -104,15 +105,22 @@ export function ProjectCard({ project, index, onViewProject }: ProjectCardProps)
         {/* Front */}
         <div className="flip-card-front absolute inset-0 bg-card dark:bg-card rounded-xl shadow-lg overflow-hidden border border-border">
           <div className="relative">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-40 object-cover"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.src = `https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400`;
-              }}
-            />
+            <div className="relative">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-40 object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = `https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400`;
+                }}
+              />
+              {/* Watermark for Project Image */}
+              <ContentWatermark 
+                text="© 2024 Katrina De Leon" 
+                className="opacity-30"
+              />
+            </div>
             {/* Multiple Images Indicator */}
             {hasMultipleImages && (
               <div className="absolute top-3 right-3 bg-black/70 backdrop-blur-sm text-white px-2 py-1 rounded-full text-xs flex items-center gap-1">

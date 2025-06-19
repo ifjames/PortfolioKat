@@ -445,14 +445,175 @@ function serveStatic(app2) {
   });
 }
 
+// server/document-security.ts
+import path3 from "path";
+import fs2 from "fs";
+import crypto from "crypto";
+var DocumentSecurity = class {
+  documents = /* @__PURE__ */ new Map();
+  secretKey = process.env.DOC_SECRET_KEY || "your-secret-key-change-this";
+  /**
+   * Register a document for secure access
+   */
+  registerDocument(filename, originalPath, options) {
+    const id = crypto.randomUUID();
+    const doc = {
+      id,
+      filename,
+      originalPath,
+      downloadCount: 0,
+      maxDownloads: options?.maxDownloads
+    };
+    if (options?.expirationHours) {
+      doc.expiresAt = new Date(Date.now() + options.expirationHours * 60 * 60 * 1e3);
+    }
+    this.documents.set(id, doc);
+    return id;
+  }
+  /**
+   * Generate a secure access token for a document
+   */
+  generateAccessToken(documentId, clientInfo) {
+    const doc = this.documents.get(documentId);
+    if (!doc) return null;
+    if (doc.expiresAt && doc.expiresAt < /* @__PURE__ */ new Date()) {
+      this.documents.delete(documentId);
+      return null;
+    }
+    if (doc.maxDownloads && doc.downloadCount >= doc.maxDownloads) {
+      return null;
+    }
+    const payload = {
+      documentId,
+      clientInfo: clientInfo || "anonymous",
+      issuedAt: Date.now(),
+      expiresAt: Date.now() + 60 * 60 * 1e3
+      // 1 hour
+    };
+    const token = Buffer.from(JSON.stringify(payload)).toString("base64");
+    const signature = crypto.createHmac("sha256", this.secretKey).update(token).digest("hex");
+    return `${token}.${signature}`;
+  }
+  /**
+   * Validate an access token
+   */
+  validateToken(token) {
+    try {
+      const [tokenPart, signature] = token.split(".");
+      const expectedSignature = crypto.createHmac("sha256", this.secretKey).update(tokenPart).digest("hex");
+      if (signature !== expectedSignature) {
+        return null;
+      }
+      const payload = JSON.parse(Buffer.from(tokenPart, "base64").toString());
+      if (payload.expiresAt < Date.now()) {
+        return null;
+      }
+      return {
+        documentId: payload.documentId,
+        clientInfo: payload.clientInfo
+      };
+    } catch {
+      return null;
+    }
+  }
+  /**
+   * Get document for download (increments counter)
+   */
+  getDocument(documentId) {
+    const doc = this.documents.get(documentId);
+    if (!doc) return null;
+    if (doc.expiresAt && doc.expiresAt < /* @__PURE__ */ new Date()) {
+      this.documents.delete(documentId);
+      return null;
+    }
+    if (doc.maxDownloads && doc.downloadCount >= doc.maxDownloads) {
+      return null;
+    }
+    doc.downloadCount++;
+    return doc;
+  }
+  /**
+   * Setup secure document routes
+   */
+  setupRoutes(app2) {
+    app2.post("/api/documents/:id/request-access", (req, res) => {
+      const { id } = req.params;
+      const clientInfo = req.headers["user-agent"] || "unknown";
+      const token = this.generateAccessToken(id, clientInfo);
+      if (!token) {
+        return res.status(404).json({ error: "Document not found or access denied" });
+      }
+      res.json({ accessToken: token });
+    });
+    app2.get("/api/documents/:id/download", (req, res) => {
+      const { id } = req.params;
+      const token = req.query.token;
+      if (!token) {
+        return res.status(401).json({ error: "Access token required" });
+      }
+      const validation = this.validateToken(token);
+      if (!validation || validation.documentId !== id) {
+        return res.status(401).json({ error: "Invalid or expired token" });
+      }
+      const doc = this.getDocument(id);
+      if (!doc) {
+        return res.status(404).json({ error: "Document not found or access expired" });
+      }
+      if (!fs2.existsSync(doc.originalPath)) {
+        return res.status(404).json({ error: "File not found" });
+      }
+      res.setHeader("Content-Disposition", `attachment; filename="${doc.filename}"`);
+      res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+      res.setHeader("Pragma", "no-cache");
+      res.setHeader("Expires", "0");
+      const stream = fs2.createReadStream(doc.originalPath);
+      stream.pipe(res);
+    });
+    app2.get("/api/documents/:id/info", (req, res) => {
+      const { id } = req.params;
+      const doc = this.documents.get(id);
+      if (!doc) {
+        return res.status(404).json({ error: "Document not found" });
+      }
+      res.json({
+        id: doc.id,
+        filename: doc.filename,
+        downloadCount: doc.downloadCount,
+        maxDownloads: doc.maxDownloads,
+        expiresAt: doc.expiresAt,
+        isExpired: doc.expiresAt ? doc.expiresAt < /* @__PURE__ */ new Date() : false,
+        isDownloadLimitReached: doc.maxDownloads ? doc.downloadCount >= doc.maxDownloads : false
+      });
+    });
+  }
+};
+var documentSecurity = new DocumentSecurity();
+function initializeProtectedDocuments() {
+  const resumePath = path3.join(process.cwd(), "client/public/assets/my-resume.final.pdf");
+  if (fs2.existsSync(resumePath)) {
+    documentSecurity.registerDocument(
+      "Katrina_De_Leon_Resume.pdf",
+      resumePath,
+      {
+        maxDownloads: 100,
+        // Limit downloads
+        expirationHours: 24 * 7
+        // Valid for 1 week
+      }
+    );
+  }
+}
+
 // server/index.ts
 dotenv.config();
 var app = express2();
 app.use(express2.json());
 app.use(express2.urlencoded({ extended: false }));
+initializeProtectedDocuments();
+documentSecurity.setupRoutes(app);
 app.use((req, res, next) => {
   const start = Date.now();
-  const path3 = req.path;
+  const path4 = req.path;
   let capturedJsonResponse = void 0;
   const originalResJson = res.json;
   res.json = function(bodyJson, ...args) {
@@ -461,8 +622,8 @@ app.use((req, res, next) => {
   };
   res.on("finish", () => {
     const duration = Date.now() - start;
-    if (path3.startsWith("/api")) {
-      let logLine = `${req.method} ${path3} ${res.statusCode} in ${duration}ms`;
+    if (path4.startsWith("/api")) {
+      let logLine = `${req.method} ${path4} ${res.statusCode} in ${duration}ms`;
       if (capturedJsonResponse) {
         logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
       }

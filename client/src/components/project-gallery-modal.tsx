@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { ContentWatermark } from "@/components/copyright-protection";
 import type { Project } from "@/data/projects";
 
 interface ProjectGalleryModalProps {
@@ -106,20 +107,28 @@ export function ProjectGalleryModal({ project, isOpen, onClose }: ProjectGallery
             <div className="flex flex-col lg:flex-row h-full max-h-[95vh] sm:max-h-[90vh]">
               {/* Image Section */}
               <div className="relative flex-1 bg-muted/20 flex items-center justify-center min-h-[250px] sm:min-h-[300px] lg:min-h-[500px] p-3 sm:p-4 lg:p-6">
-                <motion.img
-                  key={currentImageIndex}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.3 }}
-                  src={images[currentImageIndex]}
-                  alt={`${project.title} - Image ${currentImageIndex + 1}`}
-                  className="w-full h-full object-contain max-h-[200px] sm:max-h-[350px] lg:max-h-[450px] rounded-lg"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = `https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400`;
-                  }}
-                />
+                {/* Image with Watermark */}
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <motion.img
+                    key={currentImageIndex}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.3 }}
+                    src={images[currentImageIndex]}
+                    alt={`${project.title} - Image ${currentImageIndex + 1}`}
+                    className="w-full h-full object-contain max-h-[200px] sm:max-h-[350px] lg:max-h-[450px] rounded-lg"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = `https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400`;
+                    }}
+                  />
+                  {/* Watermark Overlay */}
+                  <ContentWatermark 
+                    text="© 2024 Katrina De Leon - Portfolio Project" 
+                    className="rounded-lg"
+                  />
+                </div>
 
                 {/* Navigation Arrows */}
                 {hasMultipleImages && (
@@ -211,7 +220,7 @@ export function ProjectGalleryModal({ project, isOpen, onClose }: ProjectGallery
                         <button
                           key={index}
                           onClick={() => setCurrentImageIndex(index)}
-                          className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                          className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all relative ${
                             index === currentImageIndex
                               ? "border-primary shadow-md"
                               : "border-border hover:border-primary/50"
@@ -225,6 +234,11 @@ export function ProjectGalleryModal({ project, isOpen, onClose }: ProjectGallery
                               const target = e.target as HTMLImageElement;
                               target.src = `https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100`;
                             }}
+                          />
+                          {/* Subtle watermark on thumbnails */}
+                          <ContentWatermark 
+                            text="© KDL" 
+                            className="opacity-20 rounded-lg"
                           />
                         </button>
                       ))}
