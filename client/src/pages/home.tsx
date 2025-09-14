@@ -10,11 +10,7 @@ import type { Project } from "@/data/projects";
 import { useState, useEffect } from "react";
 
 const typingCaptions = [
-  "General Virtual Assistant - Your behind-the-scenes partner in productivity and success!",
-  "Customer Support Specialist - Delivering exceptional service with every interaction!",
-  "Digital Marketing Assistant - Boosting your online presence and engagement!",
-  "Administrative Professional - Streamlining operations for maximum efficiency!",
-  "Project Coordinator - Turning your ideas into organized, actionable results!"
+  "General Virtual Assistant | Shopify eCommerce • Real Estate CRM • Customer Support"
 ];
 
 function TypewriterText() {

@@ -170,6 +170,29 @@ export const trainings: Training[] = [
 export const workExperience: WorkExperience[] = [
   {
     id: 1,
+    title: "Customer Support Assistant – Namu Beauty & Dr. Roots",
+    company: "Remote – EU/Asia Market",
+    location: "Remote",
+    period: "2025 – Present",
+    responsibilities: [
+      "Provided full customer support coverage for two international Shopify dropshipping stores, with a combined 950,000+ customers and 90,000+ orders sold, ensuring warm, professional, and human communication.",
+      "Delivered order & shipping support: sent branded tracking links, reassured customers during tracking delays, and used local courier systems (USPS, DHL, Royal Mail, Evri, Yodel, etc.) to provide proof of delivery (photos, notes, signatures).",
+      "Escalated delivery issues with local couriers in multiple countries and coordinated with Chinese agents; resolved urgent issues by contacting customers outside of email (WhatsApp/phone) when needed.",
+      "Followed a strict refund & compensation hierarchy: starting from $15 store credit or €5 refund, scaling up to 30%, 40%, 70%, and full refund only when necessary.",
+      "Processed cancellations in compliance with policy: full refund including shipping within 24 hours; after that, declined politely unless Dr. Roots pre-sale rules applied.",
+      "Conducted address verification for flagged or incomplete orders, updated details in Shopify, and coordinated with the team to prevent delivery failures.",
+      "Created and submitted daily support reports (emails answered, refunds, reships, cancellations, escalations) and weekly finance reports (refund totals, store credits, partial refunds, major actions).",
+      "Applied Shopify best practices: issued partial refunds manually via the right-side PayPal box without editing product quantities, ensuring accurate records.",
+      "Resolved product concerns (damaged, missing, or incorrect items) by requesting photo proof, escalating replacements, and ensuring customers felt supported.",
+      "Assisted with returns & non-deliverables, applying deductions for shipping + handling fees when refunds were issued instead of reshipments.",
+      "Handled chargebacks and disputes by following internal escalation rules, prioritizing low chargeback rates with full refunds when required.",
+      "Guided customers on product use and skincare routines: provided step-by-step instructions, personalized advice, and recommended best practices for achieving results.",
+      "Maintained brand voice across all communications, adapting tone and closing signatures for Namu Beauty and Dr. Roots customers."
+    ],
+    icon: Briefcase
+  },
+  {
+    id: 2,
     title: "Sales and Marketing Associate – Real Estate",
     company: "La Aldea del Monte (Property Consultant Role)",
     location: "Batangas, Philippines",
@@ -185,7 +208,7 @@ export const workExperience: WorkExperience[] = [
     icon: Building
   },
   {
-    id: 2,
+    id: 3,
     title: "Chat Support Representative",
     company: "247CSR",
     location: "Batangas City, Batangas",
@@ -199,7 +222,7 @@ export const workExperience: WorkExperience[] = [
     icon: Briefcase
   },
   {
-    id: 3,
+    id: 4,
     title: "Customer Support Intern",
     company: "Freelance / Project-Based",
     location: "Remote",

@@ -36,8 +36,8 @@ export default function About() {
   const handleResumeDownload = () => {
     // Create link to download PDF
     const link = document.createElement('a');
-    link.href = '/assets/my-resume.final.pdf';
-    link.download = 'Katrina-DeLeon-Resume.pdf';
+    link.href = '/assets/my-resume.final.docx';
+    link.download = 'Katrina-DeLeon-Resume.docx';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -69,9 +69,8 @@ export default function About() {
           >
             <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
               <h3 className="text-2xl font-semibold text-foreground">Professional Summary</h3>
-              
               <p>
-                Results-driven customer service and support professional with strong experience in remote chat assistance, CRM tools, and digital workflow optimization. Skilled in solving client issues, managing high-volume inquiries, and delivering empathetic, results-oriented communication. Proven ability to support business goals through fast, reliable, and professional service in fast-paced environments.
+                Client-focused and adaptable Virtual Assistant with experience in Shopify eCommerce operations, real estate CRM management, and international customer support. Skilled in handling order management, courier escalations, refunds/returns hierarchy, appointment scheduling, and lead follow-up. Adept at providing step-by-step product guidance, clear communication, and personalized solutions to build trust and ensure customer satisfaction. Recognized for attention to detail, proactive problem-solving, and strong organizational skills, with the ability to thrive in fast-paced, cross-cultural environments.
               </p>
               
             </div>
