@@ -35,18 +35,6 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    title: "Email Management & Organization",
-    description: "Comprehensive email management solution featuring inbox organization, automated responses, email templates, and priority filtering systems to maintain professional communication flow.",
-    image: "https://i.ibb.co/93T5g8Yr/image.png",
-    images: ["https://i.ibb.co/93T5g8Yr/image.png"],
-    technologies: ["Gmail", "Email Organization", "Template Creation", "Communication Management"],
-    featured: true,
-    category: "Administrative Support",
-    liveUrlLocked: false,
-    liveUrlLockedMessage: "Client Work - Available upon request"
-  },
-  {
-    id: 3,
     title: "Meeting Management & Documentation",
     description: "Complete meeting coordination system including scheduling, agenda preparation, virtual meeting setup, note-taking templates, and follow-up action item tracking for seamless business operations.",
     image: "https://i.ibb.co/h1mLhY1d/image.png",
@@ -61,7 +49,7 @@ export const projects: Project[] = [
     developmentMessage: "Template Available"
   },
   {
-    id: 4,
+    id: 3,
     title: "Task Management & Workflow Systems",
     description: "Efficient task tracking and project management system with priority assignments, deadline monitoring, progress tracking, and team collaboration features for enhanced productivity.",
     image: "https://i.ibb.co/FkgFWjht/image.png",
@@ -73,7 +61,7 @@ export const projects: Project[] = [
     liveUrlLockedMessage: "Client Portfolio - Available upon request"
   },
   {
-    id: 5,
+    id: 4,
     title: "Content Planner & Strategy Templates",
     description: "Professional content planning system with editorial calendars, post scheduling templates, content categorization, and social media strategy frameworks for consistent brand messaging.",
     image: "https://i.ibb.co/TqY6yGqG/image.png",
@@ -88,7 +76,7 @@ export const projects: Project[] = [
     developmentMessage: "Portfolio Sample"
   },
   {
-    id: 6,
+    id: 5,
     title: "Social Media Templates & Graphics",
     description: "Custom social media template collection featuring Instagram posts, stories, Facebook graphics, and LinkedIn content with consistent branding and engaging visual designs.",
     image: "https://i.ibb.co/276hthZ9/image.png",
@@ -105,70 +93,194 @@ export const projects: Project[] = [
     developmentMessage: "Template Collection"
   },
   {
-    id: 7,
-    title: "Travel Itinerary Design & Planning",
-    description: "Professional travel itinerary templates and planning documents for travel agencies, corporate trips, and personal vacations with detailed schedules, booking information, and travel guides.",
+    id: 6,
+    title: "Graphic Design Portfolio",
+    description: "Comprehensive collection of graphic design work including travel itinerary templates, custom logos, marketing campaign materials, promotional flyers, and brand identity systems. Showcases versatility in design styles, strategic visual communication, and professional marketing materials for various industries and client needs.",
     image: "https://i.ibb.co/Tqb2wskT/image.png",
     images: [
+      // Travel Itinerary Design
       "https://i.ibb.co/Tqb2wskT/image.png",
-      "https://i.ibb.co/kVDPdszh/image.png"
-    ],
-    technologies: ["Travel Planning", "Template Design", "Itinerary Creation", "Client Services"],
-    featured: true,
-    category: "Administrative Support",
-    liveUrlLocked: false,
-    liveUrlLockedMessage: "Client Work - Available upon request"
-  },
-  {
-    id: 8,
-    title: "Custom Graphic Design Portfolio",
-    description: "Collection of custom graphic design work including logos, branding materials, marketing collateral, and visual identity systems for various clients and business needs.",
-    image: "https://i.ibb.co/9kCcynRz/image.png",
-    images: [
+      "https://i.ibb.co/kVDPdszh/image.png",
+      // Custom Graphic Design
       "https://i.ibb.co/9kCcynRz/image.png",
       "https://i.ibb.co/B2GYZmMh/White-Minimalist-Product-Skincare-Instagram-Post.png",
       "https://i.ibb.co/tp9STZL0/image.png",
-      "https://i.ibb.co/4wj9tc4R/image.png"
-    ],
-    technologies: ["Adobe Illustrator", "Canva", "Logo Design", "Brand Identity", "Visual Design"],
-    featured: true,
-    category: "Graphic Design",
-    developmentMode: false,
-    developmentMessage: "Portfolio Showcase"
-  },
-  {
-    id: 9,
-    title: "Campaign Plan Design Sample",
-    description: "Comprehensive marketing campaign planning templates and visual designs.",
-    image: "https://i.ibb.co/KcTsVnd3/1.png",
-    images: [
+      "https://i.ibb.co/4wj9tc4R/image.png",
+      // Campaign Plan Design
       "https://i.ibb.co/KcTsVnd3/1.png",
       "https://i.ibb.co/xKyMwjFM/2.png",
       "https://i.ibb.co/nM9VCRW3/3.png",
       "https://i.ibb.co/cS7Y7Qps/4.png",
       "https://i.ibb.co/Z6bqnpZD/5.png",
       "https://i.ibb.co/tM8w3n0R/6.png",
-      "https://i.ibb.co/9P0wKyj/7.png"
-    ],
-    technologies: ["Strategic Planning", "Campaign Design", "Marketing Strategy", "Visual Templates", "Project Management"],
-    featured: true,
-    category: "Marketing & Strategy",
-    developmentMode: false,
-    developmentMessage: "Strategic Planning Showcase"
-  },
-  {
-    id: 10,
-    title: "Sample Flyers Design",
-    description: "Professional flyer design showcasing creative marketing materials for events, promotions, and business announcements. Features eye-catching layouts, strategic color schemes, and compelling visual hierarchy to maximize audience engagement and brand impact.",
-    image: "https://i.ibb.co/N293nDVF/496623628-1892570794854110-5820447567454576515-n.jpg",
-    images: [
+      "https://i.ibb.co/9P0wKyj/7.png",
+      // Sample Flyers Design
       "https://i.ibb.co/N293nDVF/496623628-1892570794854110-5820447567454576515-n.jpg"
     ],
-    technologies: ["Flyer Design", "Graphic Design", "Marketing Materials", "Visual Communication", "Canva"],
+    technologies: ["Adobe Illustrator", "Canva", "Graphic Design", "Logo Design", "Brand Identity", "Marketing Materials", "Travel Planning", "Template Design", "Strategic Planning", "Campaign Design", "Flyer Design", "Visual Communication"],
     featured: true,
     category: "Graphic Design",
     developmentMode: false,
-    developmentMessage: "Design Portfolio"
+    developmentMessage: "Design Portfolio Showcase"
+  },
+  {
+    id: 7,
+    title: "Customer Product Complaint Handling – Skin Reaction",
+    description: "Professional customer service case study demonstrating empathetic handling of product complaints related to skin reactions. Showcases proper protocol for health-related concerns, documentation requirements, and customer reassurance techniques.",
+    image: "/assets/Customer Product Complaint Handling – Skin Reaction/Screenshot 2025-09-19 061454.png",
+    images: [
+      "/assets/Customer Product Complaint Handling – Skin Reaction/Screenshot 2025-09-19 061454.png",
+      "/assets/Customer Product Complaint Handling – Skin Reaction/Screenshot 2025-09-19 061508.png",
+      "/assets/Customer Product Complaint Handling – Skin Reaction/Screenshot 2025-09-19 061550.png"
+    ],
+    technologies: ["Customer Service", "Health & Safety", "Complaint Resolution", "Documentation", "Empathy Training"],
+    featured: true,
+    category: "Customer Support",
+    developmentMode: false,
+    developmentMessage: "Real Client Work"
+  },
+  {
+    id: 8,
+    title: "Damaged Product Resolution",
+    description: "Comprehensive damage claim resolution process showing professional handling of damaged product complaints. Demonstrates photo evidence collection, refund processing, and customer satisfaction protocols for physical product issues.",
+    image: "/assets/Damaged Product Resolution – Assisted customers with damaged items by requesting proof and arranging refunds or replacements/Screenshot 2025-09-16 204630.png",
+    images: [
+      "/assets/Damaged Product Resolution – Assisted customers with damaged items by requesting proof and arranging refunds or replacements/Screenshot 2025-09-16 204630.png",
+      "/assets/Damaged Product Resolution – Assisted customers with damaged items by requesting proof and arranging refunds or replacements/Screenshot 2025-09-16 204702.png"
+    ],
+    technologies: ["Damage Assessment", "Proof Collection", "Refund Processing", "Customer Satisfaction", "Quality Control"],
+    featured: true,
+    category: "Customer Support",
+    developmentMode: false,
+    developmentMessage: "Live Case Examples"
+  },
+  {
+    id: 9,
+    title: "Delivery Dispute Resolution",
+    description: "Expert handling of delivery disputes and shipping issues with professional communication and solution-oriented approach. Demonstrates coordination with courier services and customer advocacy in complex delivery scenarios.",
+    image: "/assets/Delivery Dispute Resolution/Screenshot 2025-09-16 204128.png",
+    images: [
+      "/assets/Delivery Dispute Resolution/Screenshot 2025-09-16 204128.png",
+      "/assets/Delivery Dispute Resolution/Screenshot 2025-09-16 204205.png",
+      "/assets/Delivery Dispute Resolution/Screenshot 2025-09-16 204235.png"
+    ],
+    technologies: ["Dispute Resolution", "Courier Coordination", "Delivery Tracking", "Customer Advocacy", "Problem Solving"],
+    featured: false,
+    category: "Customer Support",
+    developmentMode: false,
+    developmentMessage: "Operational Excellence"
+  },
+  {
+    id: 10,
+    title: "Local Tracking Support",
+    description: "Proactive customer support providing detailed tracking updates and proof of delivery coordination with various local courier services. Showcases international shipping knowledge and customer communication excellence.",
+    image: "/assets/Local Tracking Support – Provided customers with local courier updates or proof of delivery when needed/Screenshot 2025-09-20 214431.png",
+    images: [
+      "/assets/Local Tracking Support – Provided customers with local courier updates or proof of delivery when needed/Screenshot 2025-09-20 214431.png",
+      "/assets/Local Tracking Support – Provided customers with local courier updates or proof of delivery when needed/Screenshot 2025-09-20 214446.png",
+      "/assets/Local Tracking Support – Provided customers with local courier updates or proof of delivery when needed/Screenshot 2025-09-20 214621.png",
+      "/assets/Local Tracking Support – Provided customers with local courier updates or proof of delivery when needed/Screenshot 2025-09-20 214736.png"
+    ],
+    technologies: ["Tracking Systems", "Courier Networks", "International Shipping", "Customer Updates", "Logistics Support"],
+    featured: false,
+    category: "Customer Support",
+    developmentMode: false,
+    developmentMessage: "Global Operations"
+  },
+  {
+    id: 11,
+    title: "Order & Logistics Monitoring",
+    description: "Systematic order monitoring and logistics management demonstrating proactive issue identification and rapid response protocols. Shows comprehensive order tracking and customer communication during shipping processes.",
+    image: "/assets/Order & Logistics Monitoring – Tracked orders in the system, identified urgent issues, and took immediate action to resolve them/Screenshot 2025-09-20 214945.png",
+    images: [
+      "/assets/Order & Logistics Monitoring – Tracked orders in the system, identified urgent issues, and took immediate action to resolve them/Screenshot 2025-09-20 214945.png",
+      "/assets/Order & Logistics Monitoring – Tracked orders in the system, identified urgent issues, and took immediate action to resolve them/Screenshot 2025-09-20 215032.png"
+    ],
+    technologies: ["Order Management", "System Monitoring", "Logistics Coordination", "Issue Detection", "Rapid Response"],
+    featured: false,
+    category: "Customer Support",
+    developmentMode: false,
+    developmentMessage: "System Operations"
+  },
+  {
+    id: 12,
+    title: "Order Pick-Up Notifications",
+    description: "Customer communication for order ready notifications and pick-up coordination. Demonstrates clear communication protocols and customer convenience prioritization in local fulfillment operations.",
+    image: "/assets/Order Pick-Up Notifications – Informed customers when their orders were ready for pick-up/Screenshot 2025-09-16 203624.png",
+    images: [
+      "/assets/Order Pick-Up Notifications – Informed customers when their orders were ready for pick-up/Screenshot 2025-09-16 203624.png"
+    ],
+    technologies: ["Notification Systems", "Pick-up Coordination", "Customer Communication", "Local Fulfillment", "Service Excellence"],
+    featured: false,
+    category: "Customer Support",
+    developmentMode: false,
+    developmentMessage: "Fulfillment Operations"
+  },
+  {
+    id: 13,
+    title: "Order Status & Delivery Time Updates",
+    description: "Comprehensive order status communication and delivery timeline management. Showcases proactive customer updates, expectation management, and transparent communication throughout the fulfillment process.",
+    image: "/assets/Order Status & Delivery Time Updates/Screenshot 2025-09-20 165800.png",
+    images: [
+      "/assets/Order Status & Delivery Time Updates/Screenshot 2025-09-20 165800.png",
+      "/assets/Order Status & Delivery Time Updates/Screenshot 2025-09-20 165821.png",
+      "/assets/Order Status & Delivery Time Updates/Screenshot 2025-09-20 165843.png",
+      "/assets/Order Status & Delivery Time Updates/Screenshot 2025-09-20 165904.png"
+    ],
+    technologies: ["Status Updates", "Delivery Management", "Customer Expectations", "Timeline Communication", "Service Transparency"],
+    featured: false,
+    category: "Customer Support",
+    developmentMode: false,
+    developmentMessage: "Communication Excellence"
+  },
+  {
+    id: 14,
+    title: "Product Guidance & Recommendations",
+    description: "Expert product consultation and personalized recommendations based on customer needs. Demonstrates deep product knowledge, skincare expertise, and consultative selling approach to enhance customer satisfaction.",
+    image: "/assets/Product Guidance & Recommendations – Provided customers with usage tips and suggested suitable products based on their needs/Screenshot 2025-09-20 215456.png",
+    images: [
+      "/assets/Product Guidance & Recommendations – Provided customers with usage tips and suggested suitable products based on their needs/Screenshot 2025-09-20 215456.png",
+      "/assets/Product Guidance & Recommendations – Provided customers with usage tips and suggested suitable products based on their needs/Screenshot 2025-09-20 215511.png",
+      "/assets/Product Guidance & Recommendations – Provided customers with usage tips and suggested suitable products based on their needs/Screenshot 2025-09-20 215740.png",
+      "/assets/Product Guidance & Recommendations – Provided customers with usage tips and suggested suitable products based on their needs/Screenshot 2025-09-20 215759.png"
+    ],
+    technologies: ["Product Knowledge", "Skincare Consultation", "Personalized Recommendations", "Usage Guidance", "Customer Education"],
+    featured: true,
+    category: "Customer Support",
+    developmentMode: false,
+    developmentMessage: "Consultation Services"
+  },
+  {
+    id: 15,
+    title: "Refund Processing",
+    description: "Professional refund processing demonstrating adherence to company policies while maintaining customer satisfaction. Shows proper documentation, calculation accuracy, and empathetic communication during refund procedures.",
+    image: "/assets/Refund Processing – Issued accurate partial or full refunds based on policy/Screenshot 2025-08-09 124702.png",
+    images: [
+      "/assets/Refund Processing – Issued accurate partial or full refunds based on policy/Screenshot 2025-08-09 124702.png",
+      "/assets/Refund Processing – Issued accurate partial or full refunds based on policy/Screenshot 2025-09-20 170259.png"
+    ],
+    technologies: ["Refund Processing", "Policy Compliance", "Financial Accuracy", "Customer Satisfaction", "Documentation"],
+    featured: true,
+    category: "Customer Support",
+    developmentMode: false,
+    developmentMessage: "Financial Operations"
+  },
+  {
+    id: 16,
+    title: "Returned Parcel & Reshipment Coordination",
+    description: "Complex logistics coordination for returned parcels and reshipment processes. Demonstrates international shipping knowledge, customs handling, and multi-step resolution processes for returned items.",
+    image: "/assets/Returned Parcel & Reshipment Coordination/Screenshot 2025-09-16 202451.png",
+    images: [
+      "/assets/Returned Parcel & Reshipment Coordination/Screenshot 2025-09-16 202451.png",
+      "/assets/Returned Parcel & Reshipment Coordination/Screenshot 2025-09-16 202755.png",
+      "/assets/Returned Parcel & Reshipment Coordination/Screenshot 2025-09-16 202850.png",
+      "/assets/Returned Parcel & Reshipment Coordination/Screenshot 2025-09-16 203300.png"
+    ],
+    technologies: ["Return Processing", "Reshipment Coordination", "International Logistics", "Customs Handling", "Complex Resolution"],
+    featured: false,
+    category: "Customer Support",
+    developmentMode: false,
+    developmentMessage: "Advanced Logistics"
   }
 ];
 
