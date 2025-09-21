@@ -62,21 +62,6 @@ export const projects: Project[] = [
   },
   {
     id: 4,
-    title: "Content Planner & Strategy Templates",
-    description: "Professional content planning system with editorial calendars, post scheduling templates, content categorization, and social media strategy frameworks for consistent brand messaging.",
-    image: "https://i.ibb.co/TqY6yGqG/image.png",
-    images: [
-      "https://i.ibb.co/TqY6yGqG/image.png",
-      "https://i.ibb.co/xqx2rmcg/image.png"
-    ],
-    technologies: ["Content Strategy", "Social Media Planning", "Editorial Calendar", "Brand Management"],
-    featured: false,
-    category: "Social Media Management",
-    developmentMode: false,
-    developmentMessage: "Portfolio Sample"
-  },
-  {
-    id: 5,
     title: "Social Media Templates & Graphics",
     description: "Custom social media template collection featuring Instagram posts, stories, Facebook graphics, and LinkedIn content with consistent branding and engaging visual designs.",
     image: "https://i.ibb.co/276hthZ9/image.png",
@@ -93,7 +78,7 @@ export const projects: Project[] = [
     developmentMessage: "Template Collection"
   },
   {
-    id: 6,
+    id: 5,
     title: "Graphic Design Portfolio",
     description: "Comprehensive collection of graphic design work including travel itinerary templates, custom logos, marketing campaign materials, promotional flyers, and brand identity systems. Showcases versatility in design styles, strategic visual communication, and professional marketing materials for various industries and client needs.",
     image: "https://i.ibb.co/Tqb2wskT/image.png",
@@ -124,8 +109,8 @@ export const projects: Project[] = [
     developmentMessage: "Design Portfolio Showcase"
   },
   {
-    id: 7,
-    title: "Customer Product Complaint Handling – Skin Reaction",
+    id: 6,
+    title: "Customer Product Complaint Handling",
     description: "Professional customer service case study demonstrating empathetic handling of product complaints related to skin reactions. Showcases proper protocol for health-related concerns, documentation requirements, and customer reassurance techniques.",
     image: "/assets/Customer Product Complaint Handling – Skin Reaction/Screenshot 2025-09-19 061454.png",
     images: [
@@ -140,7 +125,7 @@ export const projects: Project[] = [
     developmentMessage: "Real Client Work"
   },
   {
-    id: 8,
+    id: 7,
     title: "Damaged Product Resolution",
     description: "Comprehensive damage claim resolution process showing professional handling of damaged product complaints. Demonstrates photo evidence collection, refund processing, and customer satisfaction protocols for physical product issues.",
     image: "/assets/Damaged Product Resolution – Assisted customers with damaged items by requesting proof and arranging refunds or replacements/Screenshot 2025-09-16 204630.png",
@@ -155,7 +140,7 @@ export const projects: Project[] = [
     developmentMessage: "Live Case Examples"
   },
   {
-    id: 9,
+    id: 8,
     title: "Delivery Dispute Resolution",
     description: "Expert handling of delivery disputes and shipping issues with professional communication and solution-oriented approach. Demonstrates coordination with courier services and customer advocacy in complex delivery scenarios.",
     image: "/assets/Delivery Dispute Resolution/Screenshot 2025-09-16 204128.png",
@@ -171,7 +156,7 @@ export const projects: Project[] = [
     developmentMessage: "Operational Excellence"
   },
   {
-    id: 10,
+    id: 9,
     title: "Local Tracking Support",
     description: "Proactive customer support providing detailed tracking updates and proof of delivery coordination with various local courier services. Showcases international shipping knowledge and customer communication excellence.",
     image: "/assets/Local Tracking Support – Provided customers with local courier updates or proof of delivery when needed/Screenshot 2025-09-20 214431.png",
@@ -188,7 +173,7 @@ export const projects: Project[] = [
     developmentMessage: "Global Operations"
   },
   {
-    id: 11,
+    id: 10,
     title: "Order & Logistics Monitoring",
     description: "Systematic order monitoring and logistics management demonstrating proactive issue identification and rapid response protocols. Shows comprehensive order tracking and customer communication during shipping processes.",
     image: "/assets/Order & Logistics Monitoring – Tracked orders in the system, identified urgent issues, and took immediate action to resolve them/Screenshot 2025-09-20 214945.png",
@@ -203,7 +188,7 @@ export const projects: Project[] = [
     developmentMessage: "System Operations"
   },
   {
-    id: 12,
+    id: 11,
     title: "Order Pick-Up Notifications",
     description: "Customer communication for order ready notifications and pick-up coordination. Demonstrates clear communication protocols and customer convenience prioritization in local fulfillment operations.",
     image: "/assets/Order Pick-Up Notifications – Informed customers when their orders were ready for pick-up/Screenshot 2025-09-16 203624.png",
@@ -217,7 +202,7 @@ export const projects: Project[] = [
     developmentMessage: "Fulfillment Operations"
   },
   {
-    id: 13,
+    id: 12,
     title: "Order Status & Delivery Time Updates",
     description: "Comprehensive order status communication and delivery timeline management. Showcases proactive customer updates, expectation management, and transparent communication throughout the fulfillment process.",
     image: "/assets/Order Status & Delivery Time Updates/Screenshot 2025-09-20 165800.png",
@@ -234,7 +219,7 @@ export const projects: Project[] = [
     developmentMessage: "Communication Excellence"
   },
   {
-    id: 14,
+    id: 13,
     title: "Product Guidance & Recommendations",
     description: "Expert product consultation and personalized recommendations based on customer needs. Demonstrates deep product knowledge, skincare expertise, and consultative selling approach to enhance customer satisfaction.",
     image: "/assets/Product Guidance & Recommendations – Provided customers with usage tips and suggested suitable products based on their needs/Screenshot 2025-09-20 215456.png",
@@ -251,7 +236,7 @@ export const projects: Project[] = [
     developmentMessage: "Consultation Services"
   },
   {
-    id: 15,
+    id: 14,
     title: "Refund Processing",
     description: "Professional refund processing demonstrating adherence to company policies while maintaining customer satisfaction. Shows proper documentation, calculation accuracy, and empathetic communication during refund procedures.",
     image: "/assets/Refund Processing – Issued accurate partial or full refunds based on policy/Screenshot 2025-08-09 124702.png",
@@ -266,7 +251,7 @@ export const projects: Project[] = [
     developmentMessage: "Financial Operations"
   },
   {
-    id: 16,
+    id: 15,
     title: "Returned Parcel & Reshipment Coordination",
     description: "Complex logistics coordination for returned parcels and reshipment processes. Demonstrates international shipping knowledge, customs handling, and multi-step resolution processes for returned items.",
     image: "/assets/Returned Parcel & Reshipment Coordination/Screenshot 2025-09-16 202451.png",
@@ -281,6 +266,21 @@ export const projects: Project[] = [
     category: "Customer Support",
     developmentMode: false,
     developmentMessage: "Advanced Logistics"
+  },
+  {
+    id: 16,
+    title: "Coordinated with couriers to resolve failed deliveries and arranged successful redelivery",
+    description: "Professional coordination with courier services to resolve failed delivery attempts and arrange successful redelivery. Demonstrates proactive problem-solving, effective communication with logistics partners, and commitment to ensuring customer satisfaction through persistent delivery resolution.",
+    image: "/assets/Coordinated with couriers to resolve failed deliveries and arranged successful redelivery/Screenshot 2025-09-21 104515.png",
+    images: [
+      "/assets/Coordinated with couriers to resolve failed deliveries and arranged successful redelivery/Screenshot 2025-09-21 104515.png",
+      "/assets/Coordinated with couriers to resolve failed deliveries and arranged successful redelivery/Screenshot 2025-09-21 104531.png"
+    ],
+    technologies: ["Courier Coordination", "Delivery Resolution", "Redelivery Management", "Customer Communication", "Logistics Problem-Solving"],
+    featured: true,
+    category: "Customer Support",
+    developmentMode: false,
+    developmentMessage: "Delivery Solutions"
   }
 ];
 
